@@ -1,6 +1,7 @@
 import { View, Text, TextInput, TouchableOpacity, Image } from "react-native";
 import { useState } from "react";
 import { Link, router } from "expo-router";
+import { Divisor } from "../../components/Divisor";
 
 export default function LoginScreen() {
   const [email, setEmail] = useState("");
@@ -57,14 +58,12 @@ export default function LoginScreen() {
       </Link>
 
       <View className="flex-row items-center mb-4">
-          <View className="flex-1 h-px bg-black/5" />
-            <Text className="mx-4 text-black/50 font-medium">ou</Text>
-          <View className="flex-1 h-px bg-black/5" />
+        <View className="flex-1 h-px bg-black/5" />
+          <Text className="mx-4 text-black/50 font-medium">ou</Text>
+        <View className="flex-1 h-px bg-black/5" />
       </View>
 
-      <TouchableOpacity
-        className="border border-black/5 bg-black/5 rounded-xl px-4 py-4 w-full mb-4 flex-row items-center justify-center"
-      >
+      <TouchableOpacity className="border border-black/5 bg-black/5 rounded-xl px-4 py-4 w-full mb-4 flex-row items-center justify-center">
         <Image
           source={require("../../../assets/govbr-logo.png")}
           className="w-16 h-6 mr-3"
