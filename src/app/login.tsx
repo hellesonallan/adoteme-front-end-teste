@@ -1,6 +1,6 @@
 import { View, Text, TextInput, TouchableOpacity, Image } from "react-native";
 import { useState } from "react";
-import { Link } from "expo-router";
+import { Link, router } from "expo-router";
 
 export default function LoginScreen() {
   const [email, setEmail] = useState("");
@@ -9,7 +9,11 @@ export default function LoginScreen() {
   const handleLogin = () => {
     console.log("Email:", email);
     console.log("Senha:", senha);
+
+    router.replace("/home");
   };
+
+  const inputStyles = "w-full border border-black/5 bg-black/5 rounded-xl px-4 py-4 placeholder:text-black/50";
 
   return (
     <View className="flex-1 justify-center items-center bg-white px-6">
@@ -19,12 +23,12 @@ export default function LoginScreen() {
         resizeMode="contain"
       />
 
-      <Text className="text-3xl font-bold color-black">Bem-vindo de volta!</Text>
+      <Text className="text-3xl font-bold text-black">Bem-vindo de volta!</Text>
 
-      <Text className="text-xl mb-8 color-black/50">Faça login na sua conta</Text>
+      <Text className="text-xl mb-8 text-black/50">Faça login na sua conta</Text>
 
       <TextInput
-        className="w-full border border-black/5 bg-black/5 rounded-xl px-4 py-4 mb-4 placeholder:color-black/50"
+        className={`${inputStyles} mb-4`}
         placeholder="E-mail"
         value={email}
         onChangeText={setEmail}
@@ -33,7 +37,7 @@ export default function LoginScreen() {
       />
 
       <TextInput
-        className="w-full border border-black/5 bg-black/5 rounded-xl px-4 py-4 mb-8 placeholder:color-black/50"
+        className={`${inputStyles} mb-8`}
         placeholder="Senha"
         value={senha}
         onChangeText={setSenha}
@@ -44,9 +48,9 @@ export default function LoginScreen() {
         className="bg-green rounded-xl px-4 py-4 w-full mb-4"
         onPress={handleLogin}
       >
-        <Link href="/home" className="text-white text-center font-bold text-xl">
+        <Text className="text-white text-center font-bold text-xl">
           Entrar
-        </Link>
+        </Text>
       </TouchableOpacity>
 
       <Link href="/forgetpassword" className="text-green text-center font-bold py-4 w-full mb-4">
