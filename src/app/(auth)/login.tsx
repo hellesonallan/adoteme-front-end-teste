@@ -18,14 +18,13 @@ export default function LoginScreen() {
   return (
     <View className="flex-1 justify-center items-center bg-white px-6">
       <Image
-        source={require("../../assets/logo.png")}
+        source={require("../../../assets/logo.png")}
         className="w-64 mb-8"
         resizeMode="contain"
       />
 
-      <Text className="text-3xl font-bold text-black">Bem-vindo de volta!</Text>
-
-      <Text className="text-xl mb-8 text-black/50">Faça login na sua conta</Text>
+      <Text className="text-3xl font-bold text-black mb-2">Bem-vindo de volta!</Text>
+      <Text className="text-xl mb-6 text-black/50">Faça login na sua conta</Text>
 
       <TextInput
         className={`${inputStyles} mb-4`}
@@ -37,7 +36,7 @@ export default function LoginScreen() {
       />
 
       <TextInput
-        className={`${inputStyles} mb-8`}
+        className={`${inputStyles} mb-6`}
         placeholder="Senha"
         value={senha}
         onChangeText={setSenha}
@@ -67,7 +66,7 @@ export default function LoginScreen() {
         className="border border-black/5 bg-black/5 rounded-xl px-4 py-4 w-full mb-4 flex-row items-center justify-center"
       >
         <Image
-          source={require("../../assets/govbr-logo.png")}
+          source={require("../../../assets/govbr-logo.png")}
           className="w-16 h-6 mr-3"
           resizeMode="contain"
         />
