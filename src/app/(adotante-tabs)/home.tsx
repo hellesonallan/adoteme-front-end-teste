@@ -1,0 +1,128 @@
+import { View, Text, ScrollView, TextInput, TouchableOpacity, Image } from "react-native";
+import { useState } from "react";
+import { SafeAreaView } from "react-native-safe-area-context";
+import { Ionicons } from "@expo/vector-icons";
+import { colors } from "../../styles/colors";
+
+export default function HomeScreen() {
+  const [search, setSearch] = useState("");
+
+  const pets = [
+    {
+      id: 1,
+      nome: "Bolt",
+      idade: "2 anos",
+      porte: "Médio",
+      local: "Recife - PE",
+      filtros: ["Cachorro", "Carinhoso", "Bom com crianças"],
+      ong: "Amigos de Pata",
+      imagem: {
+        uri: "https://images.unsplash.com/photo-1503256207526-0d5d80fa2f47?q=80&w=1972&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      },
+    },
+    {
+      id: 2,
+      nome: "Luna",
+      idade: "1 ano",
+      porte: "Pequeno",
+      local: "Olinda - PE",
+      filtros: ["Gato", "Independente", "Calmo"],
+      ong: "Lar do Coração Animal",
+      imagem: {
+        uri: "https://images.unsplash.com/photo-1573865526739-10659fec78a5?q=80&w=2030&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      },
+    },
+    {
+      id: 3,
+      nome: "Thor",
+      idade: "3 anos",
+      porte: "Grande",
+      local: "Jaboatão - PE",
+      filtros: ["Cachorro", "Protetor", "Bom com outros animais"],
+      ong: "Projeto Patinhas Felizes",
+      imagem: {
+        uri: "https://images.unsplash.com/photo-1517423440428-a5a00ad493e8?q=80&w=2000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      },
+    },
+    {
+      id: 4,
+      nome: "Mimi",
+      idade: "4 anos",
+      porte: "Pequeno",
+      local: "Paulista - PE",
+      filtros: ["Gato", "Curioso", "Calmo"],
+      ong: "Refúgio Animal",
+      imagem: {
+        uri: "https://images.unsplash.com/photo-1518791841217-8f162f1e1131?q=80&w=2000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      },
+    },
+  ];
+
+  return (
+    <SafeAreaView className="flex-1 bg-white px-4 py-4">
+      <View className="flex-row items-center bg-black/5 rounded-xl px-4 py-2 mb-4">
+        <Ionicons name="search" size={20} color={colors.black} />
+        <TextInput
+          className="ml-2 placeholder:text-black/50"
+          placeholder="Buscar por nome, raça..."
+          value={search}
+          onChangeText={setSearch}
+        />
+      </View>
+
+      <View className="flex-row flex-wrap gap-2 mb-4">
+        <TouchableOpacity className="bg-green px-3 py-2 rounded-full">
+          <Text className="text-white font-medium text-sm">Cachorros</Text>
+        </TouchableOpacity>
+        <TouchableOpacity className="bg-black/5 px-3 py-2 rounded-full">
+          <Text className="text-black font-medium text-sm">Gatos</Text>
+        </TouchableOpacity>
+        <TouchableOpacity className="bg-black/5 px-3 py-2 rounded-full">
+          <Text className="text-black font-medium text-sm">Pequeno porte</Text>
+        </TouchableOpacity>
+        <TouchableOpacity className="bg-black/5 px-3 py-2 rounded-full">
+          <Text className="text-black font-medium text-sm">Médio porte</Text>
+        </TouchableOpacity>
+        <TouchableOpacity className="bg-black/5 px-3 py-2 rounded-full">
+          <Text className="text-black font-medium text-sm">Grande porte</Text>
+        </TouchableOpacity>
+      </View>
+
+      <ScrollView showsVerticalScrollIndicator={false}>
+        {pets.map((pet) => (
+          <View
+            key={pet.id}
+            className="bg-black/5 rounded-xl mb-4 p-4 flex-row items-center"
+          >
+            <Image
+              source={pet.imagem}
+              className="w-40 h-40 rounded-xl mr-4"
+              resizeMode="cover"
+            />
+            <View className="flex-1 gap-2">
+              <View className="flex-row items-center gap-2">
+                <Text className="text-lg font-bold text-black">{pet.nome}</Text>
+                <Text className="text-lg text-black/70">• {pet.idade}</Text>
+              </View>
+              <View className="flex-row flex-wrap gap-2 mb-2">
+                {pet.filtros.map((filtro, index) => (
+                  <View key={index} className="bg-black/10 px-3 py-1 rounded-full">
+                    <Text className="text-black text-xs font-medium">{filtro}</Text>
+                  </View>
+                ))}
+              </View>
+              <View className="flex-row gap-2">
+                <Ionicons name="home" size={16} color={colors.green} />
+                <Text className="text-black/70">{pet.ong}</Text>
+              </View>
+              <View className="flex-row gap-2">
+                <Ionicons name="location" size={16} color={colors.green} />
+                <Text className="text-black/70">{pet.local}</Text>
+              </View>
+            </View>
+          </View>
+        ))}
+      </ScrollView>
+    </SafeAreaView>
+  );
+}
