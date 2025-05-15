@@ -76,7 +76,7 @@ export default function LoginScreen() {
 
       <View className="flex-row justify-center">
         <Text className="text-black">Não tem uma conta? </Text>
-          <Link href="/cadastro" className="text-green font-bold">
+          <Link href="/register" className="text-green font-bold">
             Cadastre-se
           </Link>
       </View>
