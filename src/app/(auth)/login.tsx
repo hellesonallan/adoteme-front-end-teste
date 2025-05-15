@@ -1,7 +1,6 @@
 import { View, Text, TextInput, TouchableOpacity, Image } from "react-native";
 import { useState } from "react";
 import { Link, router } from "expo-router";
-import { Divisor } from "../../components/Divisor";
 
 export default function LoginScreen() {
   const [email, setEmail] = useState("");
