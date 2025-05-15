@@ -14,7 +14,7 @@ export default function RootLayout() {
       <View className="bg-white py-3 border-b border-gray-200 items-center justify-center">
         <Image
           source={require("../../../assets/logo.png")}
-          className="w-40 h-10"
+          className="w-50 h-10"
           resizeMode="contain"
         />
       </View>
