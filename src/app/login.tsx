@@ -1,6 +1,6 @@
-// app/login.tsx
-import { View, Text, TextInput, TouchableOpacity } from "react-native";
+import { View, Text, TextInput, TouchableOpacity, Image } from "react-native";
 import { useState } from "react";
+import { Link } from "expo-router";
 
 export default function LoginScreen() {
   const [email, setEmail] = useState("");
@@ -13,12 +13,18 @@ export default function LoginScreen() {
 
   return (
     <View className="flex-1 justify-center items-center bg-white px-6">
-      <Text className="text-4xl font-bold">Bem-vindo de volta!</Text>
+      <Image
+        source={require("../../assets/logo.png")}
+        className="w-64 mb-8"
+        resizeMode="contain"
+      />
 
-      <Text className="text-2xl mb-8 color-gray-200">Faça login na sua conta</Text>
+      <Text className="text-3xl font-bold color-black">Bem-vindo de volta!</Text>
+
+      <Text className="text-xl mb-8 color-black/50">Faça login na sua conta</Text>
 
       <TextInput
-        className="w-full border border-gray-200 rounded-xl px-4 py-3 mb-4"
+        className="w-full border border-black/5 bg-black/5 rounded-xl px-4 py-4 mb-4 placeholder:color-black/50"
         placeholder="E-mail"
         value={email}
         onChangeText={setEmail}
@@ -27,7 +33,7 @@ export default function LoginScreen() {
       />
 
       <TextInput
-        className="w-full border border-gray-200 rounded-xl px-4 py-3 mb-6"
+        className="w-full border border-black/5 bg-black/5 rounded-xl px-4 py-4 mb-8 placeholder:color-black/50"
         placeholder="Senha"
         value={senha}
         onChangeText={setSenha}
@@ -35,11 +41,41 @@ export default function LoginScreen() {
       />
 
       <TouchableOpacity
-        className="bg-blue-600 rounded-xl px-4 py-3 w-full"
+        className="bg-green rounded-xl px-4 py-4 w-full mb-4"
         onPress={handleLogin}
       >
-        <Text className="text-white text-center font-medium">Entrar</Text>
+        <Link href="/home" className="text-white text-center font-bold text-xl">
+          Entrar
+        </Link>
       </TouchableOpacity>
+
+      <Link href="/forgetpassword" className="text-green text-center font-bold py-4 w-full mb-4">
+        Esqueceu sua senha?
+      </Link>
+
+      <View className="flex-row items-center mb-4">
+          <View className="flex-1 h-px bg-black/5" />
+            <Text className="mx-4 text-black/50 font-medium">ou</Text>
+          <View className="flex-1 h-px bg-black/5" />
+      </View>
+
+      <TouchableOpacity
+        className="border border-black/5 bg-black/5 rounded-xl px-4 py-4 w-full mb-4 flex-row items-center justify-center"
+      >
+        <Image
+          source={require("../../assets/govbr-logo.png")}
+          className="w-16 h-6 mr-3"
+          resizeMode="contain"
+        />
+        <Text className="text-black font-bold text-base">Entrar com gov.br</Text>
+      </TouchableOpacity>
+
+      <View className="flex-row justify-center">
+        <Text className="text-black">Não tem uma conta? </Text>
+          <Link href="/cadastro" className="text-green font-bold">
+            Cadastre-se
+          </Link>
+      </View>
     </View>
   );
 }
