@@ -13,11 +13,13 @@ export default function LoginScreen() {
 
   return (
     <View className="flex-1 justify-center items-center bg-white px-6">
-      <Text className="text-2xl font-bold mb-8">Login</Text>
+      <Text className="text-4xl font-bold">Bem-vindo de volta!</Text>
+
+      <Text className="text-2xl mb-8 color-gray-200">Faça login na sua conta</Text>
 
       <TextInput
-        className="w-full border border-gray-300 rounded-xl px-4 py-3 mb-4"
-        placeholder="Email"
+        className="w-full border border-gray-200 rounded-xl px-4 py-3 mb-4"
+        placeholder="E-mail"
         value={email}
         onChangeText={setEmail}
         keyboardType="email-address"
@@ -25,7 +27,7 @@ export default function LoginScreen() {
       />
 
       <TextInput
-        className="w-full border border-gray-300 rounded-xl px-4 py-3 mb-6"
+        className="w-full border border-gray-200 rounded-xl px-4 py-3 mb-6"
         placeholder="Senha"
         value={senha}
         onChangeText={setSenha}
