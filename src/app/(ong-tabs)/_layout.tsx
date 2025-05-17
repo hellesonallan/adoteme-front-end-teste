@@ -7,6 +7,7 @@ export default function RootLayout() {
 
   const tabs = [
     { name: "Home", route: "/home" },
+    { name: "Cadastro de Pet", route: "/pet-register" },
   ];
 
   return (

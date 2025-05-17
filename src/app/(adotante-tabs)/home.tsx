@@ -60,6 +60,11 @@ export default function HomeScreen() {
 
   return (
     <SafeAreaView className="flex-1 bg-white px-4 py-4 gap-6">
+      <View>
+        <Text className="text-2xl font-bold text-black">Olá, Rodrigo!</Text>
+        <Text className="text-gray-500">Aqui estão alguns pets que combinam com você</Text>
+      </View>
+
       <View className="flex-row items-center bg-gray-50 border-2 border-gray-200 rounded-xl px-4 py-2 gap-2">
         <Ionicons name="search" size={20} color={colors.black} />
         <TextInput
@@ -92,11 +97,11 @@ export default function HomeScreen() {
         {pets.map((pet) => (
           <View
             key={pet.id}
-            className="bg-gray-50 border border-gray-200 rounded-2xl mb-4 p-4 flex-row gap-4"
+            className="bg-gray-50 border border-gray-200 rounded-xl mb-4 p-4 flex-row gap-4"
           >
             <Image
               source={pet.imagem}
-              className="w-36 h-full rounded-xl"
+              className="w-36 h-36 rounded-xl"
               resizeMode="cover"
             />
             <View className="flex-1 gap-2">
