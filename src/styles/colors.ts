@@ -1,7 +1,7 @@
 export const colors = {
     white: "#fcfefd",
 
-    black: "#000",
+    black: "#0b132b",
 
     gray: {
         50: "#f9fafb",
@@ -12,10 +12,5 @@ export const colors = {
         500: "#6b7280",
     },
 
-    green: "#31dcb7",
-
-    blue: {
-        400: "#5060bc",
-        500: "#3d50b9",
-    },
+    green: "#00bc7d",
 }
