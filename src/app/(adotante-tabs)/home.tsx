@@ -59,32 +59,32 @@ export default function HomeScreen() {
   ];
 
   return (
-    <SafeAreaView className="flex-1 bg-white px-4 py-4">
-      <View className="flex-row items-center bg-black/5 rounded-xl px-4 py-2 mb-4">
+    <SafeAreaView className="flex-1 bg-white px-4 py-4 gap-6">
+      <View className="flex-row items-center bg-gray-50 border-2 border-gray-200 rounded-xl px-4 py-2 gap-2">
         <Ionicons name="search" size={20} color={colors.black} />
         <TextInput
-          className="ml-2 placeholder:text-black/50"
+          className="placeholder:text-gray-400"
           placeholder="Buscar por nome, raça..."
           value={search}
           onChangeText={setSearch}
         />
       </View>
 
-      <View className="flex-row flex-wrap gap-2 mb-4">
-        <TouchableOpacity className="bg-green px-3 py-2 rounded-full">
-          <Text className="text-white font-medium text-sm">Cachorros</Text>
+      <View className="flex-row flex-wrap gap-2">
+        <TouchableOpacity className="bg-green px-4 py-2 rounded-full">
+          <Text className="text-white font-bold text-sm">Cachorros</Text>
         </TouchableOpacity>
-        <TouchableOpacity className="bg-black/5 px-3 py-2 rounded-full">
-          <Text className="text-black font-medium text-sm">Gatos</Text>
+        <TouchableOpacity className="bg-gray-50 border-2 border-gray-200 px-4 py-2 rounded-full">
+          <Text className="text-black text-sm">Gatos</Text>
         </TouchableOpacity>
-        <TouchableOpacity className="bg-black/5 px-3 py-2 rounded-full">
-          <Text className="text-black font-medium text-sm">Pequeno porte</Text>
+        <TouchableOpacity className="bg-gray-50 border-2 border-gray-200 px-4 py-2 rounded-full">
+          <Text className="text-black text-sm">Pequeno porte</Text>
         </TouchableOpacity>
-        <TouchableOpacity className="bg-black/5 px-3 py-2 rounded-full">
-          <Text className="text-black font-medium text-sm">Médio porte</Text>
+        <TouchableOpacity className="bg-gray-50 border-2 border-gray-200 px-4 py-2 rounded-full">
+          <Text className="text-black text-sm">Médio porte</Text>
         </TouchableOpacity>
-        <TouchableOpacity className="bg-black/5 px-3 py-2 rounded-full">
-          <Text className="text-black font-medium text-sm">Grande porte</Text>
+        <TouchableOpacity className="bg-gray-50 border-2 border-gray-200 px-4 py-2 rounded-full">
+          <Text className="text-black text-sm">Grande porte</Text>
         </TouchableOpacity>
       </View>
 
@@ -92,32 +92,34 @@ export default function HomeScreen() {
         {pets.map((pet) => (
           <View
             key={pet.id}
-            className="bg-black/5 rounded-xl mb-4 p-4 flex-row items-center"
+            className="bg-gray-50 border border-gray-200 rounded-2xl mb-4 p-4 flex-row items-center"
           >
             <Image
               source={pet.imagem}
-              className="w-40 h-40 rounded-xl mr-4"
+              className="w-36 h-full rounded-2xl mr-4"
               resizeMode="cover"
             />
-            <View className="flex-1 gap-2">
+            <View className="flex-1 gap-1">
               <View className="flex-row items-center gap-2">
                 <Text className="text-lg font-bold text-black">{pet.nome}</Text>
-                <Text className="text-lg text-black/70">• {pet.idade}</Text>
+                <Text className="text-base text-black/70">• {pet.idade}</Text>
               </View>
-              <View className="flex-row flex-wrap gap-2 mb-2">
+
+              <View className="flex-row flex-wrap gap-2 my-2">
                 {pet.filtros.map((filtro, index) => (
-                  <View key={index} className="bg-black/10 px-3 py-1 rounded-full">
+                  <View key={index} className="bg-black/5 border border-gray-200 px-3 py-1 rounded-full">
                     <Text className="text-black text-xs font-medium">{filtro}</Text>
                   </View>
                 ))}
               </View>
-              <View className="flex-row gap-2">
+
+              <View className="flex-row items-center gap-2">
                 <Ionicons name="home" size={16} color={colors.green} />
-                <Text className="text-black/70">{pet.ong}</Text>
+                <Text className="text-black/70 text-sm">{pet.ong}</Text>
               </View>
-              <View className="flex-row gap-2">
+              <View className="flex-row items-center gap-2">
                 <Ionicons name="location" size={16} color={colors.green} />
-                <Text className="text-black/70">{pet.local}</Text>
+                <Text className="text-black/70 text-sm">{pet.local}</Text>
               </View>
             </View>
           </View>
